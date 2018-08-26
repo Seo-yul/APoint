@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cf.yul.apoint.dao.KanjiMapper">
+	
+	<insert id="insertKanjiRank" parameterType="KanjiRank">
+	Insert into kanjirank (kanji, kor)
+		VALUES (#{kanji}, #{kor})
+	</insert>
+	
+	<update id="updateKanjiRank" parameterType="String">
+	UPDATE kanjirank
+	set counter = counter+1
+	where kanji = #{kanji}
+	</update>
+	
+	<select id="selectKanjiRank" parameterType="String" resultType="KanjiRank">
+	Select kanji, kor, counter
+	From kanjirank
+	where kanji = #{kanji}
+	</select>
+	
+	<select id="selectAllKanjiRank" resultType="KanjiRank">
+	  Select k.kanji as kanji , k.kor as kor, k.counter as counter
+	 From (Select kanji, kor, counter From kanjirank order by counter desc) k 
+	 where 40 >= rownum  order by counter desc
+	</select>
+	
+	
+</mapper>
+

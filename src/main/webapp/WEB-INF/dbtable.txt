@@ -1,0 +1,27 @@
+create table MonthPlan (
+seq NUMBER,
+toDo VARCHAR2(100),
+pdate DATE
+)
+
+create table WeekPlan (
+seq NUMBER,
+toDo VARCHAR2(100),
+pdate DATE
+)
+
+create TABLE kakaouser(
+    userID VARCHAR2(100)
+    ,nickname varchar2(100)
+    ,thumbnail_image VARCHAR2(200)
+    ,grade VARCHAR2(5) DEFAULT 'stu'
+)
+create table Userdevice (
+     USERID VARCHAR(100)
+    ,remoteAddress VARCHAR(16)
+    ,inetAddress VARCHAR(18)
+    ,computerName VARCHAR(50)
+)
+
+create SEQUENCE monthseq start with 1 increment by 1 nocache;
+create SEQUENCE weekseq start with 1 increment by 1 nocache;

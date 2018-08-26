@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cf.yul.apoint.dao.AttendanceMapper">
+	
+	<update id="updateAttend" parameterType="map">
+	UPDATE Attendance
+	set STATUS = '1'
+	where CHECKDAY = to_DATE(#{checkDate},'YYYY-MM-dd') and USERID = #{userId}
+	</update>
+	
+	<update id="updateAbsence" parameterType="map">
+	UPDATE Attendance
+	set STATUS = '0'
+	where CHECKDAY = to_DATE(#{checkDate},'YYYY-MM-dd') and USERID = #{userId}
+	</update>
+	
+	<insert id="insertAttendance" parameterType="UserDevice">
+	Insert into Attendance (USERID, COMPUTERNAME, STATUS)
+		VALUES (#{userid}, #{computerName}, 1)
+	</insert>
+	
+	<select id="selectAttendance" parameterType="String" resultType="Attendance">
+	Select USERID, COMPUTERNAME, CHECKDATE, STATUS
+	From Attendance
+	where userid = #{userid}
+	order by checkDate desc
+	</select>
+	
+	<select id="selectAllAttendance" resultType="AllAttendance">
+	select k.userid as userId, computerName, checkDate, status, nickname
+	from attendance at, KAKAOUSER k
+	where at.userid=k.userid
+	order by checkDate desc
+	</select>
+	
+	<insert id="insertAbsence" parameterType="UserDevice">
+	Insert into Attendance (USERID, COMPUTERNAME, STATUS)
+		VALUES (#{userid}, #{computerName}, 0)
+	</insert>
+	
+</mapper>
+

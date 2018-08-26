@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cf.yul.apoint.dao.PlanMapper">
+
+	<insert id="insertWeekPlan" parameterType="WeekPlan">
+	Insert into WeekPlan (seq, toDo, pdate)
+		VALUES (weekseq.nextVal, #{toDo}, #{pdate})
+	</insert>
+	
+	<select id="selectWeekPlan" resultType="WeekPlan">
+	select SEQ, TODO, TO_CHAR(PDATE,'MM-DD') as PDATE
+	from WeekPlan
+	where PDATE BETWEEN sysdate-1 AND sysdate+7
+	order by PDATE asc
+	</select>
+	
+	<insert id="insertMonthPlan" parameterType="MonthPlan">
+	Insert into MonthPlan (seq, toDo, pdate)
+		VALUES (monthseq.nextVal, #{toDo}, #{pdate})
+	</insert>
+	
+	<select id="selectMonthPlan" resultType="MonthPlan">
+	select SEQ, TODO, TO_CHAR(PDATE,'MM-DD') as PDATE
+	from MonthPlan
+	where PDATE BETWEEN sysdate-1 AND sysdate+30
+	order by PDATE asc
+	</select>
+	
+</mapper>
+

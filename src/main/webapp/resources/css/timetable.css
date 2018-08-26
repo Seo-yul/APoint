@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+@media ( min-width : 992px) {
+	.weekdays li, .days li {width: 13.1%;}
+	
+}
+
+@media ( min-width : 768px) {
+	.weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media ( min-width : 576px) {
+     .weekdays li, .days li {width: 12.2%;}
+}

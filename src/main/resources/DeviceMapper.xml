@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cf.yul.apoint.dao.DeviceMapper">
+	
+	<insert id="insertUserDevice" parameterType="UserDevice">
+	Insert into UserDevice (userid, remoteAddress, inetAddress, computerName)
+		VALUES (#{userid}, #{remoteAddress}, #{inetAddress}, #{computerName})
+	</insert>
+	
+	<select id="selectUserInfo" parameterType="UserDevice" resultType="UserDevice">
+	Select userid, remoteAddress, inetAddress, computerName
+	From UserDevice
+	where userid = #{userid}
+	</select>
+	
+</mapper>
+

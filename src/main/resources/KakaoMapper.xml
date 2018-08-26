@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cf.yul.apoint.dao.KakaoMapper">
+
+	<update id="gradeUp" parameterType="KakaoUserInfo">
+	UPDATE KAKAOUSER
+	SET GRADE = 'admin'
+	WHERE USERID = #{userID}
+	</update>
+	
+	<insert id="insertUserInfo" parameterType="KakaoUserInfo">
+	Insert into KAKAOUSER (USERID, NICKNAME, THUMBNAIL_IMAGE)
+		VALUES (#{userID}, #{nickname}, #{thumbnail_image})
+	</insert>
+	
+	<select id="selectUserInfo" parameterType="KakaoUserInfo" resultType="KakaoUserInfo">
+	select USERID, NICKNAME, THUMBNAIL_IMAGE, GRADE
+	from KAKAOUSER
+	where USERID = #{userID}
+	</select>
+	
+	<select id="selectAllKakaoUserInfo" resultType="KakaoUserInfo">
+	select USERID, NICKNAME, THUMBNAIL_IMAGE, GRADE
+	from KAKAOUSER
+	order by nickname asc
+	</select>
+	
+</mapper>
+

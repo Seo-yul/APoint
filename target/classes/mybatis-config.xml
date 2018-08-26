@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+		<typeAlias type="cf.yul.apoint.vo.WeekPlan" alias="WeekPlan" />
+		<typeAlias type="cf.yul.apoint.vo.MonthPlan" alias="MonthPlan" />
+		<typeAlias type="cf.yul.apoint.vo.KakaoUserInfo" alias="KakaoUserInfo" />
+		<typeAlias type="cf.yul.apoint.vo.UserDevice" alias="UserDevice" />
+		<typeAlias type="cf.yul.apoint.vo.Attendance" alias="Attendance" />
+		<typeAlias type="cf.yul.apoint.vo.AllAttendance" alias="AllAttendance" />
+		<typeAlias type="cf.yul.apoint.vo.KanjiRank" alias="KanjiRank" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="PlanMapper.xml" />
+		<mapper resource="KakaoMapper.xml" />
+		<mapper resource="DeviceMapper.xml" />
+		<mapper resource="AttendanceMapper.xml" />
+		<mapper resource="KanjiMapper.xml" />
+	</mappers>
+</configuration>

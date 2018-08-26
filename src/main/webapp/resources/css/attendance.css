@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* .div{ */
+/* 		overflow:hidden; */
+/* 		height:auto; */
+/* 	} */
+.panel-heading {
+		padding-top: 3%;
+	}
+.fa-check-circle{
+	color:green;
+}
+.fa-ban{
+	color:red;
+}
+/*------------------------------------------------------------------
+[ Responsive ]*/
+@media ( max-width : 575px) {
+}
+@media ( min-width : 576px) {
+}
+@media ( min-width : 768px) {
+}
+@media ( min-width : 992px) {
+	.col-md-offset-1 {
+		margin-left: -1.666667%;
+	}
+	.col-md-10 {
+		width: 102.333333%;
+	}
+}
+@media ( min-width : 1200px) {
+	.col-md-offset-1 {
+		margin-left: -1.666667%;
+	}
+	.col-md-10 {
+		width: 104.333333%;
+	}
+}
