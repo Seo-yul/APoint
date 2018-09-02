@@ -103,7 +103,7 @@ public class DictionaryController {
 				JSONObject JSONmessage = (JSONObject)jObject.get("message");
 				JSONObject JSONresult = (JSONObject)JSONmessage.get("result");
 				System.out.println(JSONresult);
-//				JSONArray jArray = (JSONArray)jObject.get("translatedText"); //kakao api
+//				JSONArray jArray = (JSONArray)jObject.get("translatedText");
 				return JSONresult;
 			} catch (ParseException e) {
 				return null;
